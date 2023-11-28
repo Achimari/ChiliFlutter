@@ -39,7 +39,7 @@ class ApiServiceImplementation implements ApiService {
     if (response.statusCode == 200) {
       final Map<String, dynamic> responseData = json.decode(response.body);
       final gifsResponse = GifsResponse.fromJson(responseData);
-      return gifsResponse.data ?? []; // Assuming data is a List<GifsItem>
+      return gifsResponse.data;
     } else {
       throw Exception('Failed to load GIFs');
     }

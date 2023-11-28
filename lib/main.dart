@@ -15,12 +15,12 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'GIFs App',
       theme: ThemeData(
-        brightness: Brightness.dark, // Set brightness to Brightness.dark
+        brightness: Brightness.dark,
         primarySwatch: Colors.blue,
         visualDensity: VisualDensity.adaptivePlatformDensity,
         inputDecorationTheme: InputDecorationTheme(
           filled: true,
-          fillColor: Colors.grey[800], // Change fillColor to a darker color
+          fillColor: Colors.grey[800],
           border: OutlineInputBorder(
             borderRadius: BorderRadius.circular(10.0),
             borderSide: BorderSide.none,
@@ -40,10 +40,10 @@ class MainActivity extends StatefulWidget {
   const MainActivity({super.key});
 
   @override
-  _MainActivityState createState() => _MainActivityState();
+  MainActivityState createState() => MainActivityState();
 }
 
-class _MainActivityState extends State<MainActivity> {
+class MainActivityState extends State<MainActivity> {
   late GifsViewModel viewModel;
   final ScrollController _scrollController = ScrollController();
   final TextEditingController _searchController = TextEditingController();
@@ -128,7 +128,7 @@ class GifsAdapter extends StatelessWidget {
 
   Widget buildItemLayout(GifsItem gif) {
     return Padding(
-      padding: const EdgeInsets.all(10.0), // Add space around the Card
+      padding: const EdgeInsets.all(10.0),
       child: Card(
         child: ListTile(
           title: Center(

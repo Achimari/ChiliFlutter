@@ -22,9 +22,9 @@ class GifsViewModel extends ChangeNotifier {
     try {
       List<GifsItem> response = await _apiService.searchGifs(query, key, limit, offset, null);
       if (isNewSearch) {
-        _gifs = List.from(response); // Create a new list for a new search
+        _gifs = List.from(response);
       } else {
-        _gifs.addAll(response); // Add to the existing list when loading more
+        _gifs.addAll(response);
       }
       _gifsController.add(_gifs);
       notifyListeners();
@@ -36,14 +36,14 @@ class GifsViewModel extends ChangeNotifier {
   }
 
   Future<void> searchGifs(String query, String key) async {
-    tempQuery = query; // Update tempQuery with the new query
+    tempQuery = query;
     offset = 0; // Reset the offset
-    await _loadGifs(query, key, isNewSearch: true); // Pass isNewSearch: true for a new search
+    await _loadGifs(query, key, isNewSearch: true);
   }
 
   Future<void> loadMore() async {
     offset += limit;
-    await _loadGifs(tempQuery, Constant.KEY); // Load more gifs using tempQuery
+    await _loadGifs(tempQuery, Constant.KEY);
   }
 
   @override
